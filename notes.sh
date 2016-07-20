@@ -9,6 +9,17 @@
 #   A bash script runs line by line--errors are only discovered at runtime
 #   Don't forget about tab completion!
 
+echo '\n# Environment variables tell us things about the system. For example:\n'
+echo $TERM_PROGRAM
+
+#   Environemnt variables are dynamic. The PWD variable, for example, changes 
+#   with every directory change. The $PATH variable is a colon-separated list 
+#   specifying locations of binary files on the system. It suffices to create 
+#   a symbolic link in one of the listed binary folders to point to a desired
+#   piece of software. The command is ln -s "{Application path}" {full link}.
+#   In windows, add a shortcut to C:\WINDOWS\system32. The PATH variable will
+#   point here.
+
 echo '\n# Display shell:\n'
 echo $SHELL
 
@@ -33,7 +44,7 @@ echo '\n# Change directory to Desktop:\n'
 cd ~/Desktop ; pwd
 
 echo '\n# Change directory to home:\n'
-# cd ; pwd
+cd ; pwd
 
 #   Under the hood, EVERYTHING is a file
 #   Linux is an Extensionless System. In other systems such as Windows the 
@@ -176,3 +187,16 @@ jobs
 #   On OSX, shell preferences can be set in hidden file ~/.bash_profile, which 
 #   is checked before the shell environment is loaded. It can be reset with the 
 #   source command. An alias is a way of defining or redefining custom commands.
+
+#   The Filesystem Hierarchy Standard (FHS) for Unix-like operating systems 
+#   (en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard) defines the directory 
+#   structure found in Linux, OSX etc. Notable directories include /bin, where 
+#   binaries for a lot of the discussed commands (cat, cp, ls, etc.) sit, 
+#   /sbin, containing essential system binaries (reboot, shutdown, ping, md5, 
+#   ifconfig, amongst others). The /usr directory contains for example, usr/bin 
+#   in which are kept most user utilities and applications, including the 
+#   X Windows System--the basic framework for GUIs in Unix-like systems, also
+#   usr/bin for non-essential user binaries, usr/sbin for non-essential system 
+#   binaries. On OS X, applications are stored in /Applications, however. The
+#   Volumes directory contains a directory (symbolic link?) named after the 
+#   hard drive. This refers (recursively) to the root directory (/).
